@@ -54,6 +54,12 @@ case class EngineTab(
   }
 
   sparkUI.foreach { ui =>
+    // 移除 Environment Tab
+    val environmentTabToRemove = ui.getTabs.find(_.prefix == "environment")
+    environmentTabToRemove.foreach { tab =>
+      ui.detachTab(tab)
+    }
+
     this.attachPage(EnginePage(this))
     this.attachPage(EngineSessionPage(this))
     ui.attachTab(this)
