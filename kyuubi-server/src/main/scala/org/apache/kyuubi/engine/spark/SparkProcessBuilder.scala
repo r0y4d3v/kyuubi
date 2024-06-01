@@ -304,6 +304,7 @@ class SparkProcessBuilder(
         buffer ++= confKeyValue("spark.kubernetes.driverEnv.SPARK_USER_NAME", userName)
         buffer ++= confKeyValue("spark.executorEnv.SPARK_USER_NAME", userName)
         buffer ++= confKeyValue("spark.kubernetes.driver.label.spark-user", userName)
+        buffer ++= confKeyValue("spark.ui.proxyBase", "/spark/"+userName)
       }
     }
   }
