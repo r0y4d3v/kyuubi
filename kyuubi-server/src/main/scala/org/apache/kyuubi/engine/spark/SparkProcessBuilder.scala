@@ -303,6 +303,7 @@ class SparkProcessBuilder(
       if (cm.toUpperCase.startsWith("K8S")) {
         buffer ++= confKeyValue("spark.kubernetes.driverEnv.SPARK_USER_NAME", userName)
         buffer ++= confKeyValue("spark.executorEnv.SPARK_USER_NAME", userName)
+        buffer ++= confKeyValue("spark.kubernetes.driver.label.spark-user", userName)
       }
     }
   }
